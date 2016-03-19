@@ -20,7 +20,7 @@ import pytz
 import requests
 import json
 
-from hackney_law_data_client import *
+from app.hackney_law_data_client import *
 
 config = Configuration()
 config.host = HACKNEY_LAW_DATA_API_URL
