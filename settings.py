@@ -23,7 +23,7 @@ HACKNEY_LAW_DATA_API_URL = os.environ.get(
 
 HACKNEY_LAW_MESSAGE_API_URL = os.environ.get(
     "HACKNEY_LAW_MESSAGE_API_URL",
-    "https://law.mmt.me.uk/")
+    "http://law.mmt.me.uk/")
 
 CASE_RECORD_TIMEOUT_MINUTES = int(
     os.environ.get("CASE_RECORD_TIMEOUT_MINUTES", 1440))
