@@ -1,11 +1,17 @@
 """Configuration values."""
 
 import os
-from private_settings import HACKNEY_LAW_DATA_API_KEY
-from private_settings import MAILGUN_SECRET_API_KEY
-from private_settings import HACKNEY_LAW_MESSAGE_API_KEY
-from private_settings import API_AI_ACCESS_TOKEN
+HACKNEY_LAW_DATA_API_KEY = os.environ.get(
+    "HACKNEY_LAW_DATA_API_KEY", "aN0IL6Y3wMOBJIsMoWEDVAxHXJCREcRnGgxGnSjeBMzda2mvKC")
 
+MAILGUN_SECRET_API_KEY = os.environ.get(
+    "MAILGUN_SECRET_API_KEY", "aN0IL6Y3wMOBJIsMoWEDVAxHXJCREcRnGgxGnSjeBMzda2mvKC")
+
+HACKNEY_LAW_MESSAGE_API_KEY = os.environ.get(
+    "HACKNEY_LAW_MESSAGE_API_KEY", "aN0IL6Y3wMOBJIsMoWEDVAxHXJCREcRnGgxGnSjeBMzda2mvKC")
+
+API_AI_ACCESS_TOKEN = os.environ.get(
+    "API_AI_ACCESS_TOKEN", "0e010641a9db48eb8f53079054de0526")
 
 DEBUG = bool(int(os.environ.get("DEBUG", 1)))
 
