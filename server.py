@@ -2,4 +2,4 @@
 from app import app
 from settings import PORT
 
-app.run(port=PORT)
+app.run(host='0.0.0.0',port=PORT)
