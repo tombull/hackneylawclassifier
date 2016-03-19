@@ -12,7 +12,7 @@ PORT = os.environ.get("PORT", 5000)
 
 HACKNEY_LAW_DATA_API_URL = os.environ.get(
     "HACKNEY_LAW_DATA_API_URL",
-    "https://pod-superb-hivepod-2625.herokuapp.com/api/")
+    "https://pod-superb-hivepod-2625.herokuapp.com/api")
 
 CASE_RECORD_TIMEOUT_MINUTES = int(
     os.environ.get("CASE_RECORD_TIMEOUT_MINUTES", 1440))
