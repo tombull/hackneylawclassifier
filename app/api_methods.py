@@ -18,6 +18,7 @@ import os
 import pdb
 import pytz
 import requests
+import json
 
 from hackney_law_data_client import *
 
@@ -77,10 +78,10 @@ class ReceiveMessage(Resource):
         new_contact.direction = False
         new_contact.language = args.language.strip().lower()
         new_contact.message_english = args.message_english
-        new_contact.message_original = args.message_original
+        new_contact.message_original = args.message_original or 'not applicable'
         contactitemapi.create_contact_item(new_contact)
 
-        return {'identifier': user.identifier, 'identifier_type': user.identifier_type, 'case': case.id}
+        return {'message': 'success'}
 
 api.add_resource(ReceiveMessage, '/receive')
 
@@ -92,7 +93,7 @@ def send_message_and_change_state(user, case, message, desired_state, **kwargs):
 
     url = HACKNEY_LAW_MESSAGE_API_URL + 'sms/send'
     requests.post(url,
-        data={'to': user.identifier,
+        json={'to': user.identifier,
             'body': message_to_send,
             'lang': user.default_language})
 
@@ -104,8 +105,9 @@ def send_message_and_change_state(user, case, message, desired_state, **kwargs):
     new_contact.case_record = case
     new_contact.contact_time = datetime.now()
     new_contact.direction = True
-    new_contact.language = args.language.strip().lower()
+    new_contact.language = user.default_language
     new_contact.message_english = message_to_send
+    new_contact.message_original = 'not applicable'
     contactitemapi.create_contact_item(new_contact)
 
 def choose_initial_message(case):
