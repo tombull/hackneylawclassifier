@@ -3,6 +3,9 @@
 import os
 from private_settings import HACKNEY_LAW_DATA_API_KEY
 from private_settings import MAILGUN_SECRET_API_KEY
+from private_settings import HACKNEY_LAW_MESSAGE_API_KEY
+from private_settings import API_AI_ACCESS_TOKEN
+
 
 DEBUG = bool(int(os.environ.get("DEBUG", 1)))
 
@@ -10,9 +13,17 @@ SERVER_MODE = os.environ.get("SERVER_MODE", "dev")
 
 PORT = os.environ.get("PORT", 5000)
 
+API_AI_URL = os.environ.get(
+    "API_AI_URL",
+    "https://api.api.ai/v1/")
+
 HACKNEY_LAW_DATA_API_URL = os.environ.get(
     "HACKNEY_LAW_DATA_API_URL",
     "https://pod-superb-hivepod-2625.herokuapp.com/api")
+
+HACKNEY_LAW_MESSAGE_API_URL = os.environ.get(
+    "HACKNEY_LAW_MESSAGE_API_URL",
+    "https://localhost:3000")
 
 CASE_RECORD_TIMEOUT_MINUTES = int(
     os.environ.get("CASE_RECORD_TIMEOUT_MINUTES", 1440))
