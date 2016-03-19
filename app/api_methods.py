@@ -50,16 +50,16 @@ class ReceiveMessage(Resource):
     def post(self):
         parser = reqparse.RequestParser(bundle_errors=True)
         parser.add_argument(
-            'user_identifier', required=True,
+            'from', dest='user_identifier', required=True,
             help='You must specify a user identifier.')
         parser.add_argument(
-            'message_english', required=True,
+            'translated-body', dest='message_english', required=True,
             help='You must specify a message in English.')
         parser.add_argument(
-            'language', required=True,
+            'original-language', dest='language', required=True,
             help='You must specify a language for the original message.')
-        parser.add_argument('message_original', required=False)
-        parser.add_argument('intent_id', required=False)
+        parser.add_argument('translated-body', dest='message_original', required=False)
+        parser.add_argument('intentId', dest='intent_id', required=False)
         args = parser.parse_args()
 
         user = get_user(args)
