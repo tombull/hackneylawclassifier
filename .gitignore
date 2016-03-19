@@ -4,6 +4,7 @@ __pycache__/
 *$py.class
 
 .python-version
+private_settings.py
 
 # C extensions
 *.so
