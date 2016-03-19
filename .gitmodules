@@ -1,3 +1,0 @@
-[submodule "app/hackney_law_data_client"]
-	path = app/hackney_law_data_client
-	url = https://github.com/tombull/hackneylawdataclient
