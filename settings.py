@@ -17,7 +17,7 @@ DEBUG = bool(int(os.environ.get("DEBUG", 1)))
 
 SERVER_MODE = os.environ.get("SERVER_MODE", "dev")
 
-PORT = os.environ.get("PORT", 5000)
+PORT = int(os.environ.get("PORT", 5000))
 
 API_AI_URL = os.environ.get(
     "API_AI_URL",
