@@ -90,12 +90,11 @@ def send_message_and_change_state(user, case, message, desired_state, **kwargs):
     else:
         message_to_send = message
 
-    url = HACKNEY_LAW_MESSAGE_API_URL + 'sendmessage'
+    url = HACKNEY_LAW_MESSAGE_API_URL + 'sms/send'
     requests.post(url,
-        headers={'apikey': HACKNEY_LAW_MESSAGE_API_KEY },
-        data={'telephone': user.identifier,
-            'message': message_to_send,
-            'language': user.default_language})
+        data={'to': user.identifier,
+            'body': message_to_send,
+            'lang': user.default_language})
 
     caserecordapi = CaseRecordApi()
     caserecordapi.update_case_record(id=case.id, document={'case_state': desired_state})
